@@ -1,0 +1,427 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="locamer_szModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'locamer_sz.dbo.Client' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="id_client" />
+            <PropertyRef Name="nom" />
+            <PropertyRef Name="prenom" />
+            <PropertyRef Name="tel" />
+            <PropertyRef Name="email" />
+            <PropertyRef Name="mdp" />
+          </Key>
+          <Property Name="id_client" Type="int" Nullable="false" />
+          <Property Name="nom" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="prenom" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="tel" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="email" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="mdp" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'locamer_sz.dbo.Mobilhome' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="Mobilhome">
+          <Key>
+            <PropertyRef Name="id_mobilhome" />
+            <PropertyRef Name="id_tarif" />
+            <PropertyRef Name="capacite" />
+          </Key>
+          <Property Name="id_mobilhome" Type="int" Nullable="false" />
+          <Property Name="id_tarif" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="capacite" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="terrasse" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'locamer_sz.dbo.Option' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="Option">
+          <Key>
+            <PropertyRef Name="id_option" />
+            <PropertyRef Name="libelle_option" />
+          </Key>
+          <Property Name="id_option" Type="int" Nullable="false" />
+          <Property Name="libelle_option" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="prix" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'locamer_sz.dbo.Quantite' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="Quantite">
+          <Key>
+            <PropertyRef Name="id_quantite" />
+            <PropertyRef Name="id_sejour" />
+            <PropertyRef Name="id_option" />
+            <PropertyRef Name="quantite" />
+            <PropertyRef Name="nb_jour_location" />
+          </Key>
+          <Property Name="id_quantite" Type="int" Nullable="false" />
+          <Property Name="id_sejour" Type="int" Nullable="false" />
+          <Property Name="id_option" Type="int" Nullable="false" />
+          <Property Name="quantite" Type="int" Nullable="false" />
+          <Property Name="nb_jour_location" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'locamer_sz.dbo.Reserve' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="Reserve">
+          <Key>
+            <PropertyRef Name="id_mobilhome" />
+            <PropertyRef Name="id_sejour" />
+          </Key>
+          <Property Name="id_mobilhome" Type="int" Nullable="false" />
+          <Property Name="id_sejour" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'locamer_sz.dbo.Sejour' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="Sejour">
+          <Key>
+            <PropertyRef Name="id_sejour" />
+            <PropertyRef Name="id_client" />
+            <PropertyRef Name="id_typesejour" />
+            <PropertyRef Name="date_debut" />
+          </Key>
+          <Property Name="id_sejour" Type="int" Nullable="false" />
+          <Property Name="id_client" Type="int" Nullable="false" />
+          <Property Name="id_typesejour" Type="int" Nullable="false" />
+          <Property Name="date_debut" Type="date" Nullable="false" />
+          <Property Name="date_fin" Type="date" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'locamer_sz.dbo.Tarif' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="Tarif">
+          <Key>
+            <PropertyRef Name="id_tarif" />
+            <PropertyRef Name="libelle_tarif" />
+            <PropertyRef Name="prix_tarif" />
+          </Key>
+          <Property Name="id_tarif" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="libelle_tarif" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="prix_tarif" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'locamer_sz.dbo.Typesejour' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="Typesejour">
+          <Key>
+            <PropertyRef Name="id_typesejour" />
+            <PropertyRef Name="libelle_typesjour" />
+            <PropertyRef Name="prix" />
+          </Key>
+          <Property Name="id_typesejour" Type="int" Nullable="false" />
+          <Property Name="libelle_typesjour" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="prix" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="locamer_szModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="Self.Client" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Client].[id_client] AS [id_client], 
+    [Client].[nom] AS [nom], 
+    [Client].[prenom] AS [prenom], 
+    [Client].[tel] AS [tel], 
+    [Client].[email] AS [email], 
+    [Client].[mdp] AS [mdp]
+    FROM [dbo].[Client] AS [Client]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Mobilhome" EntityType="Self.Mobilhome" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Mobilhome].[id_mobilhome] AS [id_mobilhome], 
+    [Mobilhome].[id_tarif] AS [id_tarif], 
+    [Mobilhome].[capacite] AS [capacite], 
+    [Mobilhome].[terrasse] AS [terrasse]
+    FROM [dbo].[Mobilhome] AS [Mobilhome]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Option" EntityType="Self.Option" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Option].[id_option] AS [id_option], 
+    [Option].[libelle_option] AS [libelle_option], 
+    [Option].[prix] AS [prix]
+    FROM [dbo].[Option] AS [Option]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Quantite" EntityType="Self.Quantite" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Quantite].[id_quantite] AS [id_quantite], 
+    [Quantite].[id_sejour] AS [id_sejour], 
+    [Quantite].[id_option] AS [id_option], 
+    [Quantite].[quantite] AS [quantite], 
+    [Quantite].[nb_jour_location] AS [nb_jour_location]
+    FROM [dbo].[Quantite] AS [Quantite]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Reserve" EntityType="Self.Reserve" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Reserve].[id_mobilhome] AS [id_mobilhome], 
+    [Reserve].[id_sejour] AS [id_sejour]
+    FROM [dbo].[Reserve] AS [Reserve]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Sejour" EntityType="Self.Sejour" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Sejour].[id_sejour] AS [id_sejour], 
+    [Sejour].[id_client] AS [id_client], 
+    [Sejour].[id_typesejour] AS [id_typesejour], 
+    [Sejour].[date_debut] AS [date_debut], 
+    [Sejour].[date_fin] AS [date_fin]
+    FROM [dbo].[Sejour] AS [Sejour]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Tarif" EntityType="Self.Tarif" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Tarif].[id_tarif] AS [id_tarif], 
+    [Tarif].[libelle_tarif] AS [libelle_tarif], 
+    [Tarif].[prix_tarif] AS [prix_tarif]
+    FROM [dbo].[Tarif] AS [Tarif]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Typesejour" EntityType="Self.Typesejour" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Typesejour].[id_typesejour] AS [id_typesejour], 
+    [Typesejour].[libelle_typesjour] AS [libelle_typesjour], 
+    [Typesejour].[prix] AS [prix]
+    FROM [dbo].[Typesejour] AS [Typesejour]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="locamer_szModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="id_client" />
+            <PropertyRef Name="nom" />
+            <PropertyRef Name="prenom" />
+            <PropertyRef Name="tel" />
+            <PropertyRef Name="email" />
+            <PropertyRef Name="mdp" />
+          </Key>
+          <Property Name="id_client" Type="Int32" Nullable="false" />
+          <Property Name="nom" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="prenom" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="tel" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="mdp" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Mobilhome">
+          <Key>
+            <PropertyRef Name="id_mobilhome" />
+            <PropertyRef Name="id_tarif" />
+            <PropertyRef Name="capacite" />
+          </Key>
+          <Property Name="id_mobilhome" Type="Int32" Nullable="false" />
+          <Property Name="id_tarif" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="capacite" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="terrasse" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Option">
+          <Key>
+            <PropertyRef Name="id_option" />
+            <PropertyRef Name="libelle_option" />
+          </Key>
+          <Property Name="id_option" Type="Int32" Nullable="false" />
+          <Property Name="libelle_option" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="prix" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Quantite">
+          <Key>
+            <PropertyRef Name="id_quantite" />
+            <PropertyRef Name="id_sejour" />
+            <PropertyRef Name="id_option" />
+            <PropertyRef Name="quantite1" />
+            <PropertyRef Name="nb_jour_location" />
+          </Key>
+          <Property Name="id_quantite" Type="Int32" Nullable="false" />
+          <Property Name="id_sejour" Type="Int32" Nullable="false" />
+          <Property Name="id_option" Type="Int32" Nullable="false" />
+          <Property Name="quantite1" Type="Int32" Nullable="false" />
+          <Property Name="nb_jour_location" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reserve">
+          <Key>
+            <PropertyRef Name="id_mobilhome" />
+            <PropertyRef Name="id_sejour" />
+          </Key>
+          <Property Name="id_mobilhome" Type="Int32" Nullable="false" />
+          <Property Name="id_sejour" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sejour">
+          <Key>
+            <PropertyRef Name="id_sejour" />
+            <PropertyRef Name="id_client" />
+            <PropertyRef Name="id_typesejour" />
+            <PropertyRef Name="date_debut" />
+          </Key>
+          <Property Name="id_sejour" Type="Int32" Nullable="false" />
+          <Property Name="id_client" Type="Int32" Nullable="false" />
+          <Property Name="id_typesejour" Type="Int32" Nullable="false" />
+          <Property Name="date_debut" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="date_fin" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Tarif">
+          <Key>
+            <PropertyRef Name="id_tarif" />
+            <PropertyRef Name="libelle_tarif" />
+            <PropertyRef Name="prix_tarif" />
+          </Key>
+          <Property Name="id_tarif" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="libelle_tarif" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="prix_tarif" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Typesejour">
+          <Key>
+            <PropertyRef Name="id_typesejour" />
+            <PropertyRef Name="libelle_typesjour" />
+            <PropertyRef Name="prix" />
+          </Key>
+          <Property Name="id_typesejour" Type="Int32" Nullable="false" />
+          <Property Name="libelle_typesjour" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="prix" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="locamer_szEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Clients" EntityType="Self.Client" />
+          <EntitySet Name="Mobilhomes" EntityType="Self.Mobilhome" />
+          <EntitySet Name="Options" EntityType="Self.Option" />
+          <EntitySet Name="Quantites" EntityType="Self.Quantite" />
+          <EntitySet Name="Reserves" EntityType="Self.Reserve" />
+          <EntitySet Name="Sejours" EntityType="Self.Sejour" />
+          <EntitySet Name="Tarifs" EntityType="Self.Tarif" />
+          <EntitySet Name="Typesejours" EntityType="Self.Typesejour" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="locamer_szModelStoreContainer" CdmEntityContainer="locamer_szEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="locamer_szModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="locamer_szModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="id_client" ColumnName="id_client" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="prenom" ColumnName="prenom" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="mdp" ColumnName="mdp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mobilhomes">
+            <EntityTypeMapping TypeName="locamer_szModel.Mobilhome">
+              <MappingFragment StoreEntitySet="Mobilhome">
+                <ScalarProperty Name="id_mobilhome" ColumnName="id_mobilhome" />
+                <ScalarProperty Name="id_tarif" ColumnName="id_tarif" />
+                <ScalarProperty Name="capacite" ColumnName="capacite" />
+                <ScalarProperty Name="terrasse" ColumnName="terrasse" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Options">
+            <EntityTypeMapping TypeName="locamer_szModel.Option">
+              <MappingFragment StoreEntitySet="Option">
+                <ScalarProperty Name="id_option" ColumnName="id_option" />
+                <ScalarProperty Name="libelle_option" ColumnName="libelle_option" />
+                <ScalarProperty Name="prix" ColumnName="prix" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Quantites">
+            <EntityTypeMapping TypeName="locamer_szModel.Quantite">
+              <MappingFragment StoreEntitySet="Quantite">
+                <ScalarProperty Name="id_quantite" ColumnName="id_quantite" />
+                <ScalarProperty Name="id_sejour" ColumnName="id_sejour" />
+                <ScalarProperty Name="id_option" ColumnName="id_option" />
+                <ScalarProperty Name="quantite1" ColumnName="quantite" />
+                <ScalarProperty Name="nb_jour_location" ColumnName="nb_jour_location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reserves">
+            <EntityTypeMapping TypeName="locamer_szModel.Reserve">
+              <MappingFragment StoreEntitySet="Reserve">
+                <ScalarProperty Name="id_mobilhome" ColumnName="id_mobilhome" />
+                <ScalarProperty Name="id_sejour" ColumnName="id_sejour" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sejours">
+            <EntityTypeMapping TypeName="locamer_szModel.Sejour">
+              <MappingFragment StoreEntitySet="Sejour">
+                <ScalarProperty Name="id_sejour" ColumnName="id_sejour" />
+                <ScalarProperty Name="id_client" ColumnName="id_client" />
+                <ScalarProperty Name="id_typesejour" ColumnName="id_typesejour" />
+                <ScalarProperty Name="date_debut" ColumnName="date_debut" />
+                <ScalarProperty Name="date_fin" ColumnName="date_fin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tarifs">
+            <EntityTypeMapping TypeName="locamer_szModel.Tarif">
+              <MappingFragment StoreEntitySet="Tarif">
+                <ScalarProperty Name="id_tarif" ColumnName="id_tarif" />
+                <ScalarProperty Name="libelle_tarif" ColumnName="libelle_tarif" />
+                <ScalarProperty Name="prix_tarif" ColumnName="prix_tarif" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Typesejours">
+            <EntityTypeMapping TypeName="locamer_szModel.Typesejour">
+              <MappingFragment StoreEntitySet="Typesejour">
+                <ScalarProperty Name="id_typesejour" ColumnName="id_typesejour" />
+                <ScalarProperty Name="libelle_typesjour" ColumnName="libelle_typesjour" />
+                <ScalarProperty Name="prix" ColumnName="prix" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
