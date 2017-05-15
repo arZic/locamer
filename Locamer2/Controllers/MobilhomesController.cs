@@ -10,107 +10,112 @@ using Locamer2.Models;
 
 namespace Locamer2.Controllers
 {
-    public class ClientsController : Controller
+    public class MobilhomesController : Controller
     {
         private locamer_szEntities5 db = new locamer_szEntities5();
 
-        // GET: Clients
+        // GET: Mobilhomes
         public ActionResult Index()
         {
-            return View(db.Clients.ToList());
+            var mobilhomes = db.Mobilhomes.Include(m => m.Tarif);
+            return View(mobilhomes.ToList());
         }
 
-        // GET: Clients/Details/5
+        // GET: Mobilhomes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Client client = db.Clients.Find(id);
-            if (client == null)
+            Mobilhome mobilhome = db.Mobilhomes.Find(id);
+            if (mobilhome == null)
             {
                 return HttpNotFound();
             }
-            return View(client);
+            return View(mobilhome);
         }
 
-        // GET: Clients/Create
+        // GET: Mobilhomes/Create
         public ActionResult Create()
         {
+            ViewBag.id_tarif = new SelectList(db.Tarifs, "id_tarif", "libelle_tarif");
             return View();
         }
 
-        // POST: Clients/Create
+        // POST: Mobilhomes/Create
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id_client,nom,prenom,tel,email,mdp")] Client client)
+        public ActionResult Create([Bind(Include = "id_mobilhome,id_tarif,capacite,terrasse")] Mobilhome mobilhome)
         {
             if (ModelState.IsValid)
             {
-                db.Clients.Add(client);
+                db.Mobilhomes.Add(mobilhome);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(client);
+            ViewBag.id_tarif = new SelectList(db.Tarifs, "id_tarif", "libelle_tarif", mobilhome.id_tarif);
+            return View(mobilhome);
         }
 
-        // GET: Clients/Edit/5
+        // GET: Mobilhomes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Client client = db.Clients.Find(id);
-            if (client == null)
+            Mobilhome mobilhome = db.Mobilhomes.Find(id);
+            if (mobilhome == null)
             {
                 return HttpNotFound();
             }
-            return View(client);
+            ViewBag.id_tarif = new SelectList(db.Tarifs, "id_tarif", "libelle_tarif", mobilhome.id_tarif);
+            return View(mobilhome);
         }
 
-        // POST: Clients/Edit/5
+        // POST: Mobilhomes/Edit/5
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id_client,nom,prenom,tel,email,mdp")] Client client)
+        public ActionResult Edit([Bind(Include = "id_mobilhome,id_tarif,capacite,terrasse")] Mobilhome mobilhome)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(client).State = EntityState.Modified;
+                db.Entry(mobilhome).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(client);
+            ViewBag.id_tarif = new SelectList(db.Tarifs, "id_tarif", "libelle_tarif", mobilhome.id_tarif);
+            return View(mobilhome);
         }
 
-        // GET: Clients/Delete/5
+        // GET: Mobilhomes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Client client = db.Clients.Find(id);
-            if (client == null)
+            Mobilhome mobilhome = db.Mobilhomes.Find(id);
+            if (mobilhome == null)
             {
                 return HttpNotFound();
             }
-            return View(client);
+            return View(mobilhome);
         }
 
-        // POST: Clients/Delete/5
+        // POST: Mobilhomes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Client client = db.Clients.Find(id);
-            db.Clients.Remove(client);
+            Mobilhome mobilhome = db.Mobilhomes.Find(id);
+            db.Mobilhomes.Remove(mobilhome);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

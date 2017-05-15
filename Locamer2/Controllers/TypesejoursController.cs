@@ -10,107 +10,107 @@ using Locamer2.Models;
 
 namespace Locamer2.Controllers
 {
-    public class ClientsController : Controller
+    public class TypesejoursController : Controller
     {
         private locamer_szEntities5 db = new locamer_szEntities5();
 
-        // GET: Clients
+        // GET: Typesejours
         public ActionResult Index()
         {
-            return View(db.Clients.ToList());
+            return View(db.Typesejours.ToList());
         }
 
-        // GET: Clients/Details/5
+        // GET: Typesejours/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Client client = db.Clients.Find(id);
-            if (client == null)
+            Typesejour typesejour = db.Typesejours.Find(id);
+            if (typesejour == null)
             {
                 return HttpNotFound();
             }
-            return View(client);
+            return View(typesejour);
         }
 
-        // GET: Clients/Create
+        // GET: Typesejours/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Clients/Create
+        // POST: Typesejours/Create
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id_client,nom,prenom,tel,email,mdp")] Client client)
+        public ActionResult Create([Bind(Include = "id_typesejour,libelle_typesejour,prix")] Typesejour typesejour)
         {
             if (ModelState.IsValid)
             {
-                db.Clients.Add(client);
+                db.Typesejours.Add(typesejour);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(client);
+            return View(typesejour);
         }
 
-        // GET: Clients/Edit/5
+        // GET: Typesejours/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Client client = db.Clients.Find(id);
-            if (client == null)
+            Typesejour typesejour = db.Typesejours.Find(id);
+            if (typesejour == null)
             {
                 return HttpNotFound();
             }
-            return View(client);
+            return View(typesejour);
         }
 
-        // POST: Clients/Edit/5
+        // POST: Typesejours/Edit/5
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id_client,nom,prenom,tel,email,mdp")] Client client)
+        public ActionResult Edit([Bind(Include = "id_typesejour,libelle_typesejour,prix")] Typesejour typesejour)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(client).State = EntityState.Modified;
+                db.Entry(typesejour).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(client);
+            return View(typesejour);
         }
 
-        // GET: Clients/Delete/5
+        // GET: Typesejours/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Client client = db.Clients.Find(id);
-            if (client == null)
+            Typesejour typesejour = db.Typesejours.Find(id);
+            if (typesejour == null)
             {
                 return HttpNotFound();
             }
-            return View(client);
+            return View(typesejour);
         }
 
-        // POST: Clients/Delete/5
+        // POST: Typesejours/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Client client = db.Clients.Find(id);
-            db.Clients.Remove(client);
+            Typesejour typesejour = db.Typesejours.Find(id);
+            db.Typesejours.Remove(typesejour);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

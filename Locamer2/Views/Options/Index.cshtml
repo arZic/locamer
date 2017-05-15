@@ -6,11 +6,14 @@
 
 <h2>Index</h2>
 
-<p>
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
+</p>*@
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.libelle_option)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.prix)
         </th>
@@ -20,13 +23,16 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.prix)
+            @Html.DisplayFor(modelItem => item.libelle_option)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.DisplayFor(modelItem => item.prix)
         </td>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_option }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_option }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_option })
+        </td>*@
     </tr>
 }
 

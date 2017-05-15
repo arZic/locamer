@@ -17,9 +17,21 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.id_typesejour)
 
-        @Html.HiddenFor(model => model.libelle_typesjour)
+        <div class="form-group">
+            @Html.LabelFor(model => model.libelle_typesejour, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.libelle_typesejour, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.libelle_typesejour, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-        @Html.HiddenFor(model => model.prix)
+        <div class="form-group">
+            @Html.LabelFor(model => model.prix, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.prix, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.prix, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

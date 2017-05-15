@@ -10,107 +10,107 @@ using Locamer2.Models;
 
 namespace Locamer2.Controllers
 {
-    public class ClientsController : Controller
+    public class TarifsController : Controller
     {
         private locamer_szEntities5 db = new locamer_szEntities5();
 
-        // GET: Clients
+        // GET: Tarifs
         public ActionResult Index()
         {
-            return View(db.Clients.ToList());
+            return View(db.Tarifs.ToList());
         }
 
-        // GET: Clients/Details/5
+        // GET: Tarifs/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Client client = db.Clients.Find(id);
-            if (client == null)
+            Tarif tarif = db.Tarifs.Find(id);
+            if (tarif == null)
             {
                 return HttpNotFound();
             }
-            return View(client);
+            return View(tarif);
         }
 
-        // GET: Clients/Create
+        // GET: Tarifs/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Clients/Create
+        // POST: Tarifs/Create
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id_client,nom,prenom,tel,email,mdp")] Client client)
+        public ActionResult Create([Bind(Include = "id_tarif,libelle_tarif,prix_tarif")] Tarif tarif)
         {
             if (ModelState.IsValid)
             {
-                db.Clients.Add(client);
+                db.Tarifs.Add(tarif);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(client);
+            return View(tarif);
         }
 
-        // GET: Clients/Edit/5
+        // GET: Tarifs/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Client client = db.Clients.Find(id);
-            if (client == null)
+            Tarif tarif = db.Tarifs.Find(id);
+            if (tarif == null)
             {
                 return HttpNotFound();
             }
-            return View(client);
+            return View(tarif);
         }
 
-        // POST: Clients/Edit/5
+        // POST: Tarifs/Edit/5
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id_client,nom,prenom,tel,email,mdp")] Client client)
+        public ActionResult Edit([Bind(Include = "id_tarif,libelle_tarif,prix_tarif")] Tarif tarif)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(client).State = EntityState.Modified;
+                db.Entry(tarif).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(client);
+            return View(tarif);
         }
 
-        // GET: Clients/Delete/5
+        // GET: Tarifs/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Client client = db.Clients.Find(id);
-            if (client == null)
+            Tarif tarif = db.Tarifs.Find(id);
+            if (tarif == null)
             {
                 return HttpNotFound();
             }
-            return View(client);
+            return View(tarif);
         }
 
-        // POST: Clients/Delete/5
+        // POST: Tarifs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Client client = db.Clients.Find(id);
-            db.Clients.Remove(client);
+            Tarif tarif = db.Tarifs.Find(id);
+            db.Tarifs.Remove(tarif);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

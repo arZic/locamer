@@ -10,9 +10,25 @@
     <h4>Typesejour</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.libelle_typesejour)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.libelle_typesejour)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.prix)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.prix)
+        </dd>
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_typesejour }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

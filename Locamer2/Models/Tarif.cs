@@ -20,7 +20,7 @@ namespace Locamer2.Models
             this.Mobilhomes = new HashSet<Mobilhome>();
         }
     
-        public string id_tarif { get; set; }
+        public int id_tarif { get; set; }
         public string libelle_tarif { get; set; }
         public decimal prix_tarif { get; set; }
     

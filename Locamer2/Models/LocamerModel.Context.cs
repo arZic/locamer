@@ -13,10 +13,10 @@ namespace Locamer2.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class locamer_szEntities3 : DbContext
+    public partial class locamer_szEntities5 : DbContext
     {
-        public locamer_szEntities3()
-            : base("name=locamer_szEntities3")
+        public locamer_szEntities5()
+            : base("name=locamer_szEntities5")
         {
         }
     

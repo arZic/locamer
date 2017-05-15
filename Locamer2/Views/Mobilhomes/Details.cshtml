@@ -11,6 +11,14 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.capacite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.capacite)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.terrasse)
         </dt>
 
@@ -18,9 +26,17 @@
             @Html.DisplayFor(model => model.terrasse)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Tarif.libelle_tarif)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tarif.libelle_tarif)
+        </dd>
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_mobilhome }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

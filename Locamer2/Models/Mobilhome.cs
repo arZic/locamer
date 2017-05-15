@@ -21,8 +21,8 @@ namespace Locamer2.Models
         }
     
         public int id_mobilhome { get; set; }
-        public string id_tarif { get; set; }
-        public string capacite { get; set; }
+        public int id_tarif { get; set; }
+        public int capacite { get; set; }
         public byte[] terrasse { get; set; }
     
         public virtual Tarif Tarif { get; set; }

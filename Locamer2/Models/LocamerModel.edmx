@@ -10,19 +10,19 @@
             <PropertyRef Name="id_client" />
           </Key>
           <Property Name="id_client" Type="int" Nullable="false" />
-          <Property Name="nom" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="prenom" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="nom" Type="nchar" MaxLength="25" Nullable="false" />
+          <Property Name="prenom" Type="nchar" MaxLength="25" Nullable="false" />
           <Property Name="tel" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="email" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="mdp" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="email" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="mdp" Type="nchar" MaxLength="15" Nullable="false" />
         </EntityType>
         <EntityType Name="Mobilhome">
           <Key>
             <PropertyRef Name="id_mobilhome" />
           </Key>
           <Property Name="id_mobilhome" Type="int" Nullable="false" />
-          <Property Name="id_tarif" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="capacite" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="id_tarif" Type="int" Nullable="false" />
+          <Property Name="capacite" Type="int" Nullable="false" />
           <Property Name="terrasse" Type="binary" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Option">
@@ -30,7 +30,7 @@
             <PropertyRef Name="id_option" />
           </Key>
           <Property Name="id_option" Type="int" Nullable="false" />
-          <Property Name="libelle_option" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="libelle_option" Type="nchar" MaxLength="30" Nullable="false" />
           <Property Name="prix" Type="decimal" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="Quantite">
@@ -75,8 +75,8 @@
           <Key>
             <PropertyRef Name="id_tarif" />
           </Key>
-          <Property Name="id_tarif" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="libelle_tarif" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="id_tarif" Type="int" Nullable="false" />
+          <Property Name="libelle_tarif" Type="nchar" MaxLength="30" Nullable="false" />
           <Property Name="prix_tarif" Type="decimal" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="Typesejour">
@@ -84,7 +84,7 @@
             <PropertyRef Name="id_typesejour" />
           </Key>
           <Property Name="id_typesejour" Type="int" Nullable="false" />
-          <Property Name="libelle_typesejour" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="libelle_typesejour" Type="nchar" MaxLength="30" Nullable="false" />
           <Property Name="prix" Type="decimal" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
         <Association Name="FK_Mobilhome_Tarif">
@@ -220,11 +220,11 @@
             <PropertyRef Name="id_client" />
           </Key>
           <Property Name="id_client" Type="Int32" Nullable="false" />
-          <Property Name="nom" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="prenom" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="nom" Type="String" MaxLength="25" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="prenom" Type="String" MaxLength="25" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="tel" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="email" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="mdp" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="mdp" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Sejours" Relationship="Self.FK_Sejour_Client" FromRole="Client" ToRole="Sejour" />
         </EntityType>
         <EntityType Name="Mobilhome">
@@ -232,8 +232,8 @@
             <PropertyRef Name="id_mobilhome" />
           </Key>
           <Property Name="id_mobilhome" Type="Int32" Nullable="false" />
-          <Property Name="id_tarif" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="capacite" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="id_tarif" Type="Int32" Nullable="false" />
+          <Property Name="capacite" Type="Int32" Nullable="false" />
           <Property Name="terrasse" Type="Binary" MaxLength="50" FixedLength="true" Nullable="false" />
           <NavigationProperty Name="Tarif" Relationship="Self.FK_Mobilhome_Tarif" FromRole="Mobilhome" ToRole="Tarif" />
           <NavigationProperty Name="Sejours" Relationship="Self.Reserve" FromRole="Mobilhome" ToRole="Sejour" />
@@ -243,7 +243,7 @@
             <PropertyRef Name="id_option" />
           </Key>
           <Property Name="id_option" Type="Int32" Nullable="false" />
-          <Property Name="libelle_option" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="libelle_option" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="prix" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <NavigationProperty Name="Quantites" Relationship="Self.FK_Quantite_Option" FromRole="Option" ToRole="Quantite" />
         </EntityType>
@@ -287,8 +287,8 @@
           <Key>
             <PropertyRef Name="id_tarif" />
           </Key>
-          <Property Name="id_tarif" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="libelle_tarif" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="id_tarif" Type="Int32" Nullable="false" />
+          <Property Name="libelle_tarif" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="prix_tarif" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <NavigationProperty Name="Mobilhomes" Relationship="Self.FK_Mobilhome_Tarif" FromRole="Tarif" ToRole="Mobilhome" />
         </EntityType>
@@ -297,7 +297,7 @@
             <PropertyRef Name="id_typesejour" />
           </Key>
           <Property Name="id_typesejour" Type="Int32" Nullable="false" />
-          <Property Name="libelle_typesejour" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="libelle_typesejour" Type="String" MaxLength="30" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="prix" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <NavigationProperty Name="Sejours" Relationship="Self.FK_Sejour_Typesejour" FromRole="Typesejour" ToRole="Sejour" />
         </EntityType>
@@ -365,7 +365,7 @@
           <End Role="Mobilhome" Type="Self.Mobilhome" Multiplicity="*" />
           <End Role="Sejour" Type="Self.Sejour" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="locamer_szEntities3" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="locamer_szEntities5" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Clients" EntityType="Self.Client" />
           <EntitySet Name="Mobilhomes" EntityType="Self.Mobilhome" />
           <EntitySet Name="Options" EntityType="Self.Option" />
@@ -404,7 +404,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="locamer_szModelStoreContainer" CdmEntityContainer="locamer_szEntities3">
+        <EntityContainerMapping StorageEntityContainer="locamer_szModelStoreContainer" CdmEntityContainer="locamer_szEntities5">
           <EntitySetMapping Name="Clients">
             <EntityTypeMapping TypeName="locamer_szModel.Client">
               <MappingFragment StoreEntitySet="Client">

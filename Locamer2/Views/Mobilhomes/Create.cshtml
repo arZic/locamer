@@ -24,9 +24,9 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.id_tarif, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.id_tarif, "id_tarif", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.id_tarif, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownList("id_tarif", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.id_tarif, "", new { @class = "text-danger" })
             </div>
         </div>

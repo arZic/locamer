@@ -10,9 +10,25 @@
     <h4>Tarif</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.libelle_tarif)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.libelle_tarif)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.prix_tarif)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.prix_tarif)
+        </dd>
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_tarif }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
