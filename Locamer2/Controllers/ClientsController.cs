@@ -12,7 +12,7 @@ namespace Locamer2.Controllers
 {
     public class ClientsController : Controller
     {
-        private locamer_szEntities2 db = new locamer_szEntities2();
+        private locamer_szEntities3 db = new locamer_szEntities3();
 
         // GET: Clients
         public ActionResult Index()

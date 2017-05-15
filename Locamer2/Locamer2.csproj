@@ -201,12 +201,6 @@
     <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\MobilhomesController.cs" />
-    <Compile Include="Controllers\OptionsController.cs" />
-    <Compile Include="Controllers\QuantitesController.cs" />
-    <Compile Include="Controllers\SejoursController.cs" />
-    <Compile Include="Controllers\TarifsController.cs" />
-    <Compile Include="Controllers\TypesejoursController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

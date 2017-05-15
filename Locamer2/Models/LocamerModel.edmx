@@ -365,7 +365,7 @@
           <End Role="Mobilhome" Type="Self.Mobilhome" Multiplicity="*" />
           <End Role="Sejour" Type="Self.Sejour" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="locamer_szEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="locamer_szEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Clients" EntityType="Self.Client" />
           <EntitySet Name="Mobilhomes" EntityType="Self.Mobilhome" />
           <EntitySet Name="Options" EntityType="Self.Option" />
@@ -404,7 +404,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="locamer_szModelStoreContainer" CdmEntityContainer="locamer_szEntities2">
+        <EntityContainerMapping StorageEntityContainer="locamer_szModelStoreContainer" CdmEntityContainer="locamer_szEntities3">
           <EntitySetMapping Name="Clients">
             <EntityTypeMapping TypeName="locamer_szModel.Client">
               <MappingFragment StoreEntitySet="Client">

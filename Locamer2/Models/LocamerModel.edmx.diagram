@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="84469ce7d61c4d4a8812ee382586234c" Name="Diagram1">
+      <Diagram DiagramId="35c8d5ea4cc54dc99f3846f451d7a37b" Name="Diagram1">
         <EntityTypeShape EntityType="locamer_szModel.Client" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="locamer_szModel.Mobilhome" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="locamer_szModel.Option" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
