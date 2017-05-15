@@ -27,6 +27,7 @@
                     <li>@Html.ActionLink("Tarifs options", "Index", "Options")</li>
                     <li>@Html.ActionLink("Types de séjours", "Index", "Typesejours")</li>
                     <li>@Html.ActionLink("Mobil Home", "Index", "MobilHome")</li>
+                    <li>@Html.ActionLink("Réservation séjour", "Index", "Sejours")</li>
                     <li>@Html.ActionLink("Clients", "Index", "Clients")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -36,9 +37,6 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")

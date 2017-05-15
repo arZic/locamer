@@ -205,6 +205,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MobilhomesController.cs" />
     <Compile Include="Controllers\OptionsController.cs" />
+    <Compile Include="Controllers\SejoursController.cs" />
     <Compile Include="Controllers\TarifsController.cs" />
     <Compile Include="Controllers\TypesejoursController.cs" />
     <Compile Include="Global.asax.cs">
@@ -358,6 +359,11 @@
     <Content Include="Views\Mobilhomes\Details.cshtml" />
     <Content Include="Views\Mobilhomes\Edit.cshtml" />
     <Content Include="Views\Mobilhomes\Index.cshtml" />
+    <Content Include="Views\Sejours\Create.cshtml" />
+    <Content Include="Views\Sejours\Delete.cshtml" />
+    <Content Include="Views\Sejours\Details.cshtml" />
+    <Content Include="Views\Sejours\Edit.cshtml" />
+    <Content Include="Views\Sejours\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

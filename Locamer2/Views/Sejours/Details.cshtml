@@ -1,0 +1,50 @@
+﻿@model Locamer2.Models.Sejour
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Sejour</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.date_debut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date_debut)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date_fin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date_fin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Client.nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client.nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Typesejour.libelle_typesejour)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Typesejour.libelle_typesejour)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_sejour }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
