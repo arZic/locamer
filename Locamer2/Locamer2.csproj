@@ -204,7 +204,6 @@
     <Compile Include="Controllers\MobilhomesController.cs" />
     <Compile Include="Controllers\OptionsController.cs" />
     <Compile Include="Controllers\QuantitesController.cs" />
-    <Compile Include="Controllers\ReservesController.cs" />
     <Compile Include="Controllers\SejoursController.cs" />
     <Compile Include="Controllers\TarifsController.cs" />
     <Compile Include="Controllers\TypesejoursController.cs" />
@@ -239,9 +238,6 @@
       <DependentUpon>LocamerModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Quantite.cs">
-      <DependentUpon>LocamerModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Reserve.cs">
       <DependentUpon>LocamerModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Sejour.cs">

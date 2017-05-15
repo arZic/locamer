@@ -19,5 +19,8 @@ namespace Locamer2.Models
         public int id_option { get; set; }
         public int quantite1 { get; set; }
         public int nb_jour_location { get; set; }
+    
+        public virtual Option Option { get; set; }
+        public virtual Sejour Sejour { get; set; }
     }
 }

@@ -14,8 +14,17 @@ namespace Locamer2.Models
     
     public partial class Option
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Option()
+        {
+            this.Quantites = new HashSet<Quantite>();
+        }
+    
         public int id_option { get; set; }
         public string libelle_option { get; set; }
-        public Nullable<decimal> prix { get; set; }
+        public decimal prix { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Quantite> Quantites { get; set; }
     }
 }

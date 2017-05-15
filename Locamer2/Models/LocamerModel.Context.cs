@@ -13,10 +13,10 @@ namespace Locamer2.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class locamer_szEntities : DbContext
+    public partial class locamer_szEntities2 : DbContext
     {
-        public locamer_szEntities()
-            : base("name=locamer_szEntities")
+        public locamer_szEntities2()
+            : base("name=locamer_szEntities2")
         {
         }
     
@@ -25,13 +25,12 @@ namespace Locamer2.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Client> Clients { get; set; }
         public virtual DbSet<Mobilhome> Mobilhomes { get; set; }
         public virtual DbSet<Option> Options { get; set; }
         public virtual DbSet<Quantite> Quantites { get; set; }
-        public virtual DbSet<Reserve> Reserves { get; set; }
         public virtual DbSet<Sejour> Sejours { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Tarif> Tarifs { get; set; }
         public virtual DbSet<Typesejour> Typesejours { get; set; }
     }

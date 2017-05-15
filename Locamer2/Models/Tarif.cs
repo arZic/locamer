@@ -14,8 +14,17 @@ namespace Locamer2.Models
     
     public partial class Tarif
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Tarif()
+        {
+            this.Mobilhomes = new HashSet<Mobilhome>();
+        }
+    
         public string id_tarif { get; set; }
         public string libelle_tarif { get; set; }
         public decimal prix_tarif { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Mobilhome> Mobilhomes { get; set; }
     }
 }

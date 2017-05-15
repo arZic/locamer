@@ -14,11 +14,20 @@ namespace Locamer2.Models
     
     public partial class Client
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Client()
+        {
+            this.Sejours = new HashSet<Sejour>();
+        }
+    
         public int id_client { get; set; }
         public string nom { get; set; }
         public string prenom { get; set; }
         public string tel { get; set; }
         public string email { get; set; }
         public string mdp { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Sejour> Sejours { get; set; }
     }
 }

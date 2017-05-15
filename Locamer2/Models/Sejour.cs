@@ -14,10 +14,24 @@ namespace Locamer2.Models
     
     public partial class Sejour
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Sejour()
+        {
+            this.Quantites = new HashSet<Quantite>();
+            this.Mobilhomes = new HashSet<Mobilhome>();
+        }
+    
         public int id_sejour { get; set; }
         public int id_client { get; set; }
         public int id_typesejour { get; set; }
         public System.DateTime date_debut { get; set; }
         public Nullable<System.DateTime> date_fin { get; set; }
+    
+        public virtual Client Client { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Quantite> Quantites { get; set; }
+        public virtual Typesejour Typesejour { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Mobilhome> Mobilhomes { get; set; }
     }
 }

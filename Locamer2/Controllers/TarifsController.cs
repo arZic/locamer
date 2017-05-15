@@ -12,7 +12,7 @@ namespace Locamer2.Controllers
 {
     public class TarifsController : Controller
     {
-        private locamer_szEntities db = new locamer_szEntities();
+        private locamer_szEntities2 db = new locamer_szEntities2();
 
         // GET: Tarifs
         public ActionResult Index()

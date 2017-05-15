@@ -14,9 +14,19 @@ namespace Locamer2.Models
     
     public partial class Mobilhome
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Mobilhome()
+        {
+            this.Sejours = new HashSet<Sejour>();
+        }
+    
         public int id_mobilhome { get; set; }
         public string id_tarif { get; set; }
         public string capacite { get; set; }
-        public string terrasse { get; set; }
+        public byte[] terrasse { get; set; }
+    
+        public virtual Tarif Tarif { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Sejour> Sejours { get; set; }
     }
 }

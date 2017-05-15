@@ -12,7 +12,7 @@ namespace Locamer2.Controllers
 {
     public class MobilhomesController : Controller
     {
-        private locamer_szEntities db = new locamer_szEntities();
+        private locamer_szEntities2 db = new locamer_szEntities2();
 
         // GET: Mobilhomes
         public ActionResult Index()

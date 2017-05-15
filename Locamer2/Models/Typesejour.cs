@@ -14,8 +14,17 @@ namespace Locamer2.Models
     
     public partial class Typesejour
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Typesejour()
+        {
+            this.Sejours = new HashSet<Sejour>();
+        }
+    
         public int id_typesejour { get; set; }
-        public string libelle_typesjour { get; set; }
+        public string libelle_typesejour { get; set; }
         public decimal prix { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Sejour> Sejours { get; set; }
     }
 }
